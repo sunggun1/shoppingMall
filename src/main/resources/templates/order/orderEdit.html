@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>
+
+<th:block layout:fragment="css">
+  <style>
+    .carousel-inner > .item {
+      height: 350px;
+    }
+    .margin{
+      margin-bottom:30px;
+    }
+    .banner{
+      height: 300px;
+      position: absolute; top:0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .card-text{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    a:hover{
+      text-decoration:none;
+    }
+    .center{
+      text-align:center;
+    }
+
+    #rightClick {
+      position: absolute;
+      padding: 5px 10px;
+      background: rgba(0, 0, 0, .5);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 10px
+    }
+    #rightCLick.hidden {
+      display: none
+    }
+  </style>
+</th:block>
+
+<th:block layout:fragment="script">
+
+  <script th:inline="javascript">
+    var msg = [[${msg}]];
+    var url = [[${url}]];
+
+    window.addEventListener("contextmenu", e => e.preventDefault());
+    window.onload = function() {
+      if(msg != null && url != null){
+        alert(msg);
+        location.href='/'+url;
+      }
+
+      drawing();
+    }
+
+    function numberWithCommas(n) {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function convertToKoreanNumber(num) {
+      var result = '';
+      var digits = ['영','일','이','삼','사','오','육','칠','팔','구'];
+      var units = ['', '십', '백', '천', '만', '십만', '백만', '천만', '억', '십억', '백억', '천억', '조', '십조', '백조', '천조'];
+
+      var numStr = num.toString(); // 문자열로 변환
+      var numLen = numStr.length; // 문자열의 길이
+
+      for(var i=0; i<numLen; i++) {
+        var digit = parseInt(numStr.charAt(i)); // i번째 자릿수 숫자
+        var unit = units[numLen-i-1]; // i번째 자릿수 단위
+
+        // 일의 자리인 경우에는 숫자를 그대로 한글로 변환
+        if(i === numLen-1 && digit === 1 && numLen !== 1) {
+          result += '일';
+        } else if(digit !== 0) { // 일의 자리가 아니거나 숫자가 0이 아닐 경우
+          result += digits[digit] + unit;
+        } else if(i === numLen-5) { // 십만 단위에서는 '만'을 붙이지 않습니다.
+          result += '만';
+        }
+      }
+
+      return result;
+    }
+
+
+
+    function drawing(){
+      const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+      let WIDTH = canvas.width;
+      let HEIGHT = canvas.height;
+
+      const priceValue = $('#check_price').val();
+      const priceCommaValue = numberWithCommas(priceValue) + '원';
+      const dateValue = $('#check_date').val();
+      const nameValue = $('#check_name').val();
+      const signValue = $('#check_sign').val();
+
+      img = new Image();
+      img.src = $('input[name=imgUrl]').val();
+      img.onload = function(){
+        ctx.drawImage(img, 0, 0, WIDTH, HEIGHT);
+        if( priceValue == "" || priceValue == null || priceValue == undefined || ( priceValue != null && typeof priceValue == "object" && !Object.keys(priceValue).length)){
+
+        }else{
+          ctx.font = "40px Gulim";
+          ctx.fillText(priceCommaValue, 300, 180);
+        }
+
+        if( dateValue == "" || dateValue == null || dateValue == undefined || ( dateValue != null && typeof dateValue == "object" && !Object.keys(dateValue).length)){
+
+        }else{
+          ctx.font = "15px Gulim";
+          ctx.fillText(dateValue, 885, 120);
+        }
+
+        if( nameValue == "" || nameValue == null || nameValue == undefined || ( nameValue != null && typeof nameValue == "object" && !Object.keys(nameValue).length)){
+
+        }else{
+          ctx.font = "50px Gulim";
+          ctx.fillText(nameValue, 360, 240);
+        }
+
+        if( signValue == "" || signValue == null || signValue == undefined || ( signValue != null && typeof signValue == "object" && !Object.keys(signValue).length)){
+
+        }else{
+          ctx.font = "50px Gulim";
+          ctx.fillText(signValue, 730, 420);
+        }
+      }
+    }
+    function imageDownload(){
+      var download = document.getElementById("download");
+      var image = document.getElementById("myCanvas")
+              .toDataURL("image/jpg")
+              .replace("image/jpg", "image/octet-stream");
+      download.setAttribute("href", image);
+      download.setAttribute("download","백지수표.jpg");
+    }
+
+    function download(){
+      var download = document.getElementById("download");
+      console.log(download);
+      var image = document.getElementById("myCanvas")
+              .toDataURL("image/jpg")
+              .replace("image/jpg", "image/octet-stream");
+      download.setAttribute("href", image);
+      download.setAttribute("download","백지수표.jpg");
+
+      var token = $("meta[name='_csrf']").attr("content");
+      var header = $("meta[name='_csrf_header']").attr("content");
+
+      const orderId = $('input[name=orderId]').val();
+      $.ajax({
+        url:"/orders/"+ orderId + "/complete",
+        type:"POST",
+        beforeSend : function(xhr){
+          /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+          xhr.setRequestHeader(header, token);
+        },
+        success: function(result) {
+          alert("사진 저장 및 주문 완료 하였습니다.");
+          location.href = "/orders";
+
+        },
+        error: function (result){
+          alert("이미 사진을 저장하셨습니다.");
+        }
+      });
+    }
+  </script>
+
+</th:block>
+<div layout:fragment="content" class="content-mg">
+  <input type="hidden" name="orderId" th:value="${orderId}">
+  <input type="hidden" name="imgUrl" th:value="${ItemImgDtoList.get(0).getImgUrl()}">
+  <h2 class="mb-4">
+    구매 목록 편집
+  </h2>
+
+  <div th:each="itemImgDto : ${ItemImgDtoList}">
+    <div class="d-flex mb-3 align-self-center">
+      <div class="ml-3">
+        <div class="main_image">
+<!--            <canvas id="myCanvas" th:width="2160" th:height="1096"></canvas>-->
+            <canvas id="myCanvas" th:width="270*4" th:height="137*4"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+    <div class="form-group">
+      <label>액수를 입력해주세요.</label>
+      <input type="text" id="check_price" class="form-control" onkeyup="drawing()">
+    </div>
+    <br>
+    <div class="form-group">
+      <label>날짜를 입력해주세요.</label>
+      <input type="text" id="check_date" class="form-control" onkeyup="drawing()">
+    </div>
+    <br>
+    <div class="form-group">
+      <label>이름을 입력해주세요.</label>
+      <input type="text" id="check_name" class="form-control" onkeyup="drawing()">
+    </div>
+    <br>
+    <div class="form-group">
+      <label>사인을 입력해주세요.</label>
+      <input type="text" id="check_sign" class="form-control" onkeyup="drawing()">
+    </div>
+    <div>
+      <a id="download">
+        <button type="button" onClick="download()">이미지 저장하기</button>
+      </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+</html>
