@@ -31,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.cors();
         http.formLogin()
                 .loginPage("/members/login")
                 .defaultSuccessUrl("/")
@@ -51,7 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling()
                 .authenticationEntryPoint(new CustomAuthenticationEntryPoint());
 
-        http.cors();
     }
 
     @Bean
@@ -74,16 +74,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         final CorsConfiguration configuration = new CorsConfiguration();
         // 쿠키 사용 허용
 
-        configuration.setAllowedOrigins(List.of("https://spring-shoppingmall-bucket.s3.ap-northeast-2.amazonaws.com"));
-
+        configuration.addAllowedOrigin("https://spring-shoppingmall-bucket.s3.ap-northeast-2.amazonaws.com");
+        configuration.addAllowedHeader("*");
+        configuration.addAllowedMethod("*");
         // 메서드 허용
-        configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
         configuration.setAllowCredentials(true);
 
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
-
         return source;
     }
 }

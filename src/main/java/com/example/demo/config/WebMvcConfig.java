@@ -7,7 +7,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+/**
+ * 안쓰임.
+ */
+//@Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Value("${uploadPath}")
