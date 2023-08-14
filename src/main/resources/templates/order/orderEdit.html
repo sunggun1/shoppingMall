@@ -109,6 +109,7 @@
 
       img = new Image();
       img.src = $('input[name=imgUrl]').val();
+      img.crossOrigin = 'Anonymous';
       img.onload = function(){
         ctx.drawImage(img, 0, 0, WIDTH, HEIGHT);
         if( priceValue == "" || priceValue == null || priceValue == undefined || ( priceValue != null && typeof priceValue == "object" && !Object.keys(priceValue).length)){
@@ -139,14 +140,6 @@
           ctx.fillText(signValue, 730, 420);
         }
       }
-    }
-    function imageDownload(){
-      var download = document.getElementById("download");
-      var image = document.getElementById("myCanvas")
-              .toDataURL("image/jpg")
-              .replace("image/jpg", "image/octet-stream");
-      download.setAttribute("href", image);
-      download.setAttribute("download","백지수표.jpg");
     }
 
     function download(){

@@ -9,7 +9,9 @@ import com.example.demo.repository.ItemRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.env.Environment;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.TestPropertySource;
@@ -37,11 +39,16 @@ class ItemServiceTest {
     @Autowired
     ItemImgRepository itemImgRepository;
 
+    @Autowired
+    private Environment env;
+
     List<MultipartFile> createMultipartFiles() throws Exception{
         List<MultipartFile> multipartFileList = new ArrayList<>();
 
         for(int i=0; i<5; i++){
-            String path = "C:/shop/item/";
+
+            //String path = "C:/shop/item/";
+            String path = env.getProperty("itemImgLocation");
             String imageName = "image" + i + ".jpg";
             MockMultipartFile multipartFile = new MockMultipartFile(path, imageName, "image/jpg", new byte[]{1,2,3,4});
 

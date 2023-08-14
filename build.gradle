@@ -40,6 +40,9 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	implementation 'org.modelmapper:modelmapper:2.3.9'
 
+	//s3 추가
+	implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1'
+
 
 	// (3) queryDSL 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"

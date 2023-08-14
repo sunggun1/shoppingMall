@@ -11,6 +11,10 @@
 <!-- 사용자 스크립트 추가 -->
 <th:block layout:fragment="script">
   <script th:inline="javascript">
+    window.onload = function(){
+      window.addEventListener("contextmenu", e => e.preventDefault());
+    }
+
     $(document).ready(function(){
 
       calculateToalPrice();
