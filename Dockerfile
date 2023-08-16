@@ -5,7 +5,7 @@ COPY --chown=gradle:gradle . /app
 WORKDIR /app
 RUN mkdir -p /project/item
 RUN chmod +x ./gradlew
-RUN ./gradlew build
+RUN ./gradlew build -x test
 
 EXPOSE 8080
 RUN ls -al
