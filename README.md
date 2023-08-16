@@ -26,7 +26,8 @@ jenkins multi branch file 만들기
 jenkins 파일 docker 읽을 수 있게 만들기
 <br>
 docker build -t jenkins-dood:1.0 -f jenkins-dockerfile .
-docker run -d -p 8084:8080 --name jenkinsServer2 jenkins-dood:1.0
+docker run -dit -p 8084:8080 --name jenkinsServer2 -v /var/run/docker.sock:/var/run/docker.sock jenkins-dood:1.0
+
 <br>
 https://sweetcode.io/how-to-deploy-an-application-to-kubernetes-cluster-using-jenkins-ci-cd-pipeline/
 <br>
