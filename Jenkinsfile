@@ -7,6 +7,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
+        echo 'pulling...' + env.BRANCH_NAME
         git 'https://github.com/sunggun1/shoppingMall.git'
       }
     }
