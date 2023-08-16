@@ -8,7 +8,7 @@ pipeline {
     stage('Checkout Source') {
       steps {
            echo 'pulling...' + env.BRANCH_NAME
-           git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/sunggun1/shoppingMall.git'
+           git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/sunggun1/shoppingMall.git'
 //         git 'https://github.com/sunggun1/shoppingMall.git'
       }
     }
