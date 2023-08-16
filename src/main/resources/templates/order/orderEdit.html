@@ -108,8 +108,8 @@
       const signValue = $('#check_sign').val();
 
       img = new Image();
+      img.crossOrigin = "anonymous";
       img.src = $('input[name=imgUrl]').val();
-      img.crossOrigin = 'Anonymous';
       img.onload = function(){
         ctx.drawImage(img, 0, 0, WIDTH, HEIGHT);
         if( priceValue == "" || priceValue == null || priceValue == undefined || ( priceValue != null && typeof priceValue == "object" && !Object.keys(priceValue).length)){
