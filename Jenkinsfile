@@ -35,7 +35,7 @@ pipeline {
       steps {
        sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.28.0/bin/linux/amd64/kubectl"'
        sh 'chmod u+x ./kubectl'
-        sh 'kubectl apply -f spring-deployment.yaml'
+        sh './kubectl apply -f spring-deployment.yaml'
       }
     }
   }
