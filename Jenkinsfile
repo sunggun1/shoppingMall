@@ -2,11 +2,8 @@ pipeline {
   environment {
     dockerimagename = "sunggun1/kubernetes-spring-mysql-demo"
     dockerImage = ""
-    EKS_API = "https://91A7A2184E247ACEC79B0767D3F203B1.yl4.ap-northeast-2.eks.amazonaws.com"
-    EKS_JENKINS_CREDENTIAL_ID = "kubectl-deploy-credentials"
-    EKS_CLUSTER_NAME = "kub-dep-demo2"
   }
-  agent any
+  agent anykubectl-deploy-credentials
   stages {
     stage('Checkout Source') {
       steps {
@@ -34,17 +31,16 @@ pipeline {
         }
       }
     }
+    stage('Remove Unused docker image') {
+      steps{
+         sh "docker rmi $dockerimagename:latest"
+      }
+    }
     stage('Deploying SpringBoot container to Kubernetes') {
       steps {
-        withKubeConfig([credentialsId: "${EKS_JENKINS_CREDENTIAL_ID}",
-                              serverUrl: "${EKS_API}",
-                              clusterName: "${EKS_CLUSTER_NAME}"])
-        {
 
-         sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.21.0/bin/linux/amd64/kubectl"'
-         sh 'chmod u+x ./kubectl'
-         sh './kubectl get pods'
-         sh "./kubectl apply -f spring-deployment.yaml"
+        withAWS([credentials: 'aws-credentials']) {
+            sh 'kubectl apply -f spring-deployment.yaml'
         }
       }
     }
