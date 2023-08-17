@@ -33,9 +33,7 @@ pipeline {
     }
     stage('Deploying SpringBoot container to Kubernetes') {
       steps {
-        script {
-          kubernetesDeploy(configs: "spring-deployment.yaml")
-        }
+        sh 'kubectl apply -f spring-deployment.yaml'
       }
     }
   }
