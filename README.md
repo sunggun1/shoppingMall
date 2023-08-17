@@ -41,4 +41,12 @@ https://waspro.tistory.com/707
 https://kanoos-stu.tistory.com/53
 <br>
 
+
+젠킨스 cluster role 생성
+<br>
+kubectl create serviceaccount jenkins-deployer
+<br>
+kubectl create clusterrolebinding jenkins-deployer-role --clusterrole==cluster-admin --serviceaccount=default:jenkins-deployer
+<br>
+
 이제 젠킨스 elasticache를 붙일 예정입니다.
