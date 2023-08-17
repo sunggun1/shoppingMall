@@ -3,7 +3,7 @@ pipeline {
     dockerimagename = "sunggun1/kubernetes-spring-mysql-demo"
     dockerImage = ""
   }
-  agent anykubectl-deploy-credentials
+  agent any
   stages {
     stage('Checkout Source') {
       steps {
