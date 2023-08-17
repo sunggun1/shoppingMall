@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-         sh "docker rmi $dockerimagename:latest"
+         sh "docker rmi registry.hub.docker.com/$dockerimagename:latest"
       }
     }
     stage('Deploying SpringBoot container to Kubernetes') {
