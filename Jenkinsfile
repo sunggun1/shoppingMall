@@ -40,7 +40,7 @@ pipeline {
       steps {
 
         withAWS([credentials: 'aws-credentials']) {
-            sh 'kubectl apply -f spring-deployment.yaml'
+            sh "kubectl apply -f spring-deployment.yaml --context kub-dep-demo2"
         }
       }
     }
