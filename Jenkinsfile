@@ -3,7 +3,7 @@ pipeline {
     dockerimagename = "sunggun1/kubernetes-spring-mysql-demo"
     dockerImage = ""
     EKS_API = "https://91A7A2184E247ACEC79B0767D3F203B1.yl4.ap-northeast-2.eks.amazonaws.com"
-    EKS_JENKINS_CREDENTIAL_ID = 'kubectl-deploy-credentials'
+    EKS_JENKINS_CREDENTIAL_ID = "kubectl-deploy-credentials"
     EKS_CLUSTER_NAME = "kub-dep-demo2"
   }
   agent any
@@ -36,7 +36,7 @@ pipeline {
     }
     stage('Deploying SpringBoot container to Kubernetes') {
       steps {
-        withKubeConfig([credentialsId: "{EKS_JENKINS_CREDENTIAL_ID}",
+        withKubeConfig([credentialsId: "${EKS_JENKINS_CREDENTIAL_ID}",
                               serverUrl: "${EKS_API}",
                               clusterName: "${EKS_CLUSTER_NAME}"])
         {
