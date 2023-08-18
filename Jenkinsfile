@@ -42,13 +42,13 @@ pipeline {
         withAWS([credentials: 'aws-credentials']) {
             sh 'ls -al'
             sh 'ls -al ~/.kube'
-            sh 'cp ~/.kube/config ~jenkins/.kube/'
+            sh 'aws eks update-kubeconfig --region ap-northeast-2 --name kub-dep-demo2'
             sh 'chown -R jenkins: ~jenkins/.kube/'
+
             sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
             sh 'chmod u+x ./kubectl'
             sh './kubectl get pods'
-
-            sh "./kubectl apply -f spring-deployment.yaml --context arn:aws:eks:ap-northeast-2:621527344872:cluster/kub-dep-demo2"
+            sh "./kubectl apply -f spring-deployment.yaml"
         }
       }
     }
