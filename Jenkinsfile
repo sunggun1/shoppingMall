@@ -42,16 +42,16 @@ pipeline {
         withAWS([credentials: 'aws-credentials']) {
             sh 'ls -al'
 
-            sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-            sh 'unzip awscliv2.zip'
-            sh './aws/install'
+//             sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+//             sh 'unzip awscliv2.zip'
+//             sh './aws/install'
             sh 'aws eks update-kubeconfig --region ap-northeast-2 --name kub-dep-demo2'
             sh 'ls -al ~jenkins/.kube/'
             sh 'chown -R jenkins: ~jenkins/.kube/'
-            sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
-            sh 'chmod u+x ./kubectl'
-            sh './kubectl get pods'
-            sh "./kubectl apply -f spring-deployment.yaml"
+//             sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
+//             sh 'chmod u+x ./kubectl'
+            sh 'kubectl get pods'
+            sh "kubectl apply -f spring-deployment.yaml"
         }
       }
     }
