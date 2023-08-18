@@ -42,9 +42,9 @@ pipeline {
         withAWS([credentials: 'aws-credentials']) {
             sh 'ls -al'
 
-            sh 'RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-            sh 'RUN unzip awscliv2.zip'
-            sh 'RUN ./aws/install'
+            sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+            sh 'unzip awscliv2.zip'
+            sh './aws/install'
             sh 'aws eks update-kubeconfig --region ap-northeast-2 --name kub-dep-demo2'
             sh 'ls -al ~jenkins/.kube/'
             sh 'chown -R jenkins: ~jenkins/.kube/'
