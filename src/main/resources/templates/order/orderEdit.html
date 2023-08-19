@@ -109,7 +109,7 @@
 
       img = new Image();
       img.crossOrigin = "anonymous";
-      img.src = $('input[name=imgUrl]').val();
+      img.src = $('input[name=firstImgUrl]').val();
       img.onload = function(){
         ctx.drawImage(img, 0, 0, WIDTH, HEIGHT);
         if( priceValue == "" || priceValue == null || priceValue == undefined || ( priceValue != null && typeof priceValue == "object" && !Object.keys(priceValue).length)){
@@ -177,6 +177,8 @@
 </th:block>
 <div layout:fragment="content" class="content-mg">
   <input type="hidden" name="orderId" th:value="${orderId}">
+  <input type="hidden" name="firstImgUrl" th:value="${firstImgUrl}">
+
   <input type="hidden" name="imgUrl" th:value="${ItemImgDtoList.get(0).getImgUrl()}">
   <h2 class="mb-4">
     구매 목록 편집

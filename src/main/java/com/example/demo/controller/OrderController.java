@@ -8,6 +8,7 @@ import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderItem;
 import com.example.demo.service.ItemImgService;
 import com.example.demo.service.OrderService;
+import com.example.demo.util.ImageUtilService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +33,7 @@ import java.util.Optional;
 public class OrderController {
     private final OrderService orderService;
     private final ItemImgService itemImgService;
+    private final ImageUtilService imageUtilService;
 
     @PostMapping("/order")
     public @ResponseBody ResponseEntity order(@RequestBody @Valid OrderDto orderDto, BindingResult bindingResult, Principal principal){
@@ -83,7 +86,15 @@ public class OrderController {
             model.addAttribute("url", null);
         }
 
+        String base64Data = null;
+        try {
+            base64Data = imageUtilService.getBase64EncodedImage(ItemImgDtoList.get(0).getImgUrl());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String firstImgUrl = "data:image/png;base64,"+base64Data;
 
+        model.addAttribute("firstImgUrl", firstImgUrl);
         model.addAttribute("orderId", orderId);
         model.addAttribute("ItemImgDtoList", ItemImgDtoList);
         return "order/orderEdit";
