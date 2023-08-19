@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app-spring
+  labels:
+    app: demo-app-spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app-spring
+  template:
+    metadata:
+      labels:
+        app: demo-app-spring
+    spec:
+      containers:
+        - name: demo-app-spring
+          image: sunggun1/kubernetes-spring-mysql-demo
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: 0.8
+              memory: "800Mi"
+          env:
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: mysql-root-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: mysql-root-password
+            - name: DB_SERVER
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: mysql-server
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: mysql-database-name
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-pass
+                  key: aws-access-key
+            - name: AWS_ACCESS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: aws-pass
+                  key: aws-access-password
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-app-spring
+  labels:
+    app: demo-app-spring
+spec:
+  type: LoadBalancer
+  selector:
+    app: demo-app-spring
+  ports:
+    - protocol: TCP
+      name: http
+      port: 8080
+      targetPort: 8080
+      nodePort: 30002
