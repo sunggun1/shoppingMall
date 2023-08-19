@@ -5,6 +5,12 @@ metadata:
   labels:
     app: demo-app-spring
 spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+    minReadySeconds: 20
   replicas: 1
   selector:
     matchLabels:
@@ -20,7 +26,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
           resources:
             limits:
               cpu: 0.8
@@ -58,20 +64,3 @@ spec:
                   key: aws-access-password
       imagePullSecrets:
         - name: regcred
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: demo-app-spring
-  labels:
-    app: demo-app-spring
-spec:
-  type: LoadBalancer
-  selector:
-    app: demo-app-spring
-  ports:
-    - protocol: TCP
-      name: http
-      port: 8080
-      targetPort: 8080
-      nodePort: 30002
