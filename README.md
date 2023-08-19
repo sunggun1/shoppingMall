@@ -23,13 +23,12 @@ kubernetes dashboard 확인 방법
 kubectl proxy 
 aws eks get-token --cluster-name kub-dep-demo2 | jq -r '.status.token'
 <br><br>
-jenkins multi branch file 만들기
+jenkins multibranch file 만들기
 jenkins 파일 docker 읽을 수 있게 만들기
 <br>
-docker build -t jenkins-dood:1.0 -f jenkins-dockerfile .
-<br>
-docker run -dit -p 8084:8080 --name jenkinsServer2 -v /var/run/docker.sock:/var/run/docker.sock jenkins-dood:1.0
-<br>
+
+
+
 docker pipeline, kubernetes, kubernetes-credentials 설치
 
 <br>
