@@ -44,7 +44,7 @@ pipeline {
             sh 'chown -R jenkins: ~/.kube/'
             sh "kubectl apply -f spring-deployment.yaml"
             sh "kubectl apply -f spring-service.yaml"
-            sh "kubectl set image deployment demo-app-spring demo-app-spring=sunggun1/kubernetes-spring-mysql-demo:${BUILD_NUMBER}"
+            sh "kubectl set image deployment demo-app-spring demo-app-spring=sunggun1/kubernetes-spring-mysql-demo:$BUILD_NUMBER"
             sh "kubectl rollout status deployment demo-app-spring"
         }
       }
