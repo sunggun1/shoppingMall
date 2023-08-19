@@ -13,7 +13,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          dockerImage = docker.build dockerimagename:${BUILD_NUMBER}
         }
       }
     }
@@ -24,6 +24,7 @@ pipeline {
       steps{
         script {
           docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+            dockerImage.push("${BUILD_NUMBER}")
             dockerImage.push("latest")
           }
         }
@@ -31,6 +32,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
+         sh "docker rmi registry.hub.docker.com/$dockerimagename:${BUILD_NUMBER}"
          sh "docker rmi registry.hub.docker.com/$dockerimagename:latest"
       }
     }
@@ -42,7 +44,7 @@ pipeline {
             sh 'chown -R jenkins: ~/.kube/'
             sh "kubectl apply -f spring-deployment.yaml"
             sh "kubectl apply -f spring-service.yaml"
-            sh "kubectl set image deployment demo-app-spring demo-app-spring=sunggun1/kubernetes-spring-mysql-demo:latest"
+            sh "kubectl set image deployment demo-app-spring demo-app-spring=sunggun1/kubernetes-spring-mysql-demo:${BUILD_NUMBER}"
             sh "kubectl rollout status deployment demo-app-spring"
         }
       }
