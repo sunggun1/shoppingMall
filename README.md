@@ -1,9 +1,10 @@
 # shoppingMall
 
 쇼핑몰 입니다. 
-aws s3, rds , 쿠버네티스 연결 완료 했습니다.
-
-코드 변경 후 아래와 같이 수행하기.
+aws s3, rds , 쿠버네티스, 젠킨스 연결 완료 했습니다.
+이제 jwttoken, redis, elasticache를 만들겠습니다.
+<br<
+<br<
 
 쿠버네티스 사용한 확인 URL : 다 만들고 올리겠습니다.
 
