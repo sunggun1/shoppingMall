@@ -43,6 +43,7 @@ pipeline {
             sh "kubectl apply -f spring-deployment.yaml"
             sh "kubectl apply -f spring-service.yaml"
             sh "kubectl set image deployment demo-app-spring demo-app-spring=sunggun1/kubernetes-spring-mysql-demo:latest"
+            sh "kubectl rollout status deployment demo-app-spring"
         }
       }
     }

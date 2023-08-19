@@ -8,7 +8,6 @@ RUN chmod +x ./gradlew
 RUN ./gradlew build -x test
 
 EXPOSE 8080
-EXPOSE 80
 RUN ls -al
 
 CMD java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
