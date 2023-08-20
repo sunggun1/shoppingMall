@@ -25,11 +25,21 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-#!**/src/main/resources/application.properties
+#**/src/main/resources/application.properties
+**/application.properties
 
 ### kubernetes ###
 *.yaml
 *.yml
+
+### eksClusterPeerRds ###
+eksClusterPeerRds.txt
+
+### jenkins-dockerfile ###
+jenkins-dockerfile
+
+### kubectl.txt ###
+kubectl.txt
 
 ### NetBeans ###
 /nbproject/private/

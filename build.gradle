@@ -43,6 +43,11 @@ dependencies {
 	//s3 추가
 	implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1'
 
+	//jwttoken 추가
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
+
 
 	// (3) queryDSL 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
