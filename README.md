@@ -82,13 +82,12 @@ jenkins multibranch pipeline 진행 순서
 <br>
 <br>
 <br>
-kubernetes dashboard 확인 방법
-kubectl proxy
-aws eks get-token --cluster-name kub-dep-demo2 | jq -r '.status.token'
+kubernetes dashboard 확인 방법<br>
+kubectl proxy<br>
+aws eks get-token --cluster-name kub-dep-demo2 | jq -r '.status.token'<br>
 <br><br>
 
 jenkins에서 플러그인 docker pipeline, kubernetes, kubernetes-credentials 설치
-
 <br>
 https://velog.io/@chang626/docker-container%EC%97%90%EC%84%9C-docker-image-%EB%B9%8C%EB%93%9C-%EC%A7%84%ED%96%89-%EA%B3%BC%EC%A0%95-jenkins-host-docker.sock%EC%9D%84-%EC%97%B0%EA%B2%B0-2
 <br>
