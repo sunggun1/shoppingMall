@@ -97,3 +97,9 @@ https://waspro.tistory.com/707
 <br>
 https://kanoos-stu.tistory.com/53
 <br>
+
+
+
+
+1. eks vpc 와 rds vpc 연결하는 방법<br>
+https://dev.to/bensooraj/accessing-amazon-rds-from-aws-eks-2pc3
