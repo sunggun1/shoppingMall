@@ -91,6 +91,11 @@ kubectl proxy<br>
 aws eks get-token --cluster-name kub-dep-demo2 | jq -r '.status.token'<br>
 <br><br>
 
+jenkins에서 
+1. github-credentials 생성하기.
+2. aws-credentials 생성하기
+3. dockerhub-credentials 생성하기
+
 <hr>
 참조 사이트 목록
 <br>
