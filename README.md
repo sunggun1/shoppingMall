@@ -104,9 +104,14 @@ https://waspro.tistory.com/707
 <br>
 https://kanoos-stu.tistory.com/53
 <br>
-
-
 <br>
 
 1. eks vpc 와 rds vpc 연결하는 방법<br>
 https://dev.to/bensooraj/accessing-amazon-rds-from-aws-eks-2pc3
+
+2. amazon linux2 ec2(jenkins)에 docker 설치 방법
+https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9
+
+3. amazon linux2 ec2(jenkins)에 kubectl 설치 방법
+https://devcoops.com/install-kubectl-amazon-linux-2/ (eks version : 1.27, kubectl version : 1.36) 버전에 맞게 설치해야 합니다.
+
