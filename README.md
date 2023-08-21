@@ -64,6 +64,11 @@
 ![image](https://github.com/sunggun1/shoppingMall/assets/17981550/7bbdbb90-342c-4acd-a455-1e05d3c7a8fb)
 ![image](https://github.com/sunggun1/shoppingMall/assets/17981550/808f6994-1ac7-4db9-b78b-638d0557703f)
 
+11. 일반 유저 로그인 메인 페이지 <br>
+![image](https://github.com/sunggun1/shoppingMall/assets/17981550/8ccca914-a0d2-4aa5-9069-1dba4f7d1c0a)
+
+
+
 <br>
 <br>
 <br>
