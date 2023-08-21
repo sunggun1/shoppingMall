@@ -4,6 +4,7 @@
 프론트 : thymeleaf, bootstrap <br>
 데브옵스 : kubernetes(aws eks), jenkins, docker <br>
 데이터베이스 : aws RDS(externalName을 이용해 연결) <br>
+그 외 : git <br>
 
 
 <br>
