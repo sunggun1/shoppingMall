@@ -10,11 +10,11 @@
 쿠버네티스를 이용해 만든 스프링부트 쇼핑몰 입니다. 
 현재 aws s3, rds , 쿠버네티스, 젠킨스 연결 완료 했습니다.<br>
 <br>
-jenkins multibranch pipeline 진행 순서<br>
-<br>1. 코드를 push 후에 jenkins로 빌드를 시작합니다.<br>
-<br>2. jenkins가 code를 다운로드 받아서 jenkins server의 docker에 build, push 하여 docker hub에 저장시킵니다.<br>
-<br>3. docker hub에 올라간 이미지를 다운로드 받아서 eks에서 deployment를 만들고 pod를 만듭니다.<br>
-<br>4. jenkins 버전이 업그레이드 됨에 따라서 새로 롤링 배포를 시작합니다.<br>
+jenkins multibranch pipeline 진행 순서
+<br>1. 코드를 push 후에 jenkins로 빌드를 시작합니다.
+<br>2. jenkins가 code를 다운로드 받아서 jenkins server의 docker에 build, push 하여 docker hub에 저장시킵니다.
+<br>3. docker hub에 올라간 이미지를 다운로드 받아서 eks에서 deployment를 만들고 pod를 만듭니다.
+<br>4. jenkins 버전이 업그레이드 됨에 따라서 새로 롤링 배포를 시작합니다.
 
 <br>
 이제 aws elasticache(redis 세션)을 사용하여 쿠버네티스 load balancing을 위해 세션 클러스터링을 작업하겠습니다.
