@@ -162,9 +162,9 @@
           <div class="fs18 font-weight-light">
             <span th:text="${orderItem.orderPrice} +'원'"></span>
             <span th:text="${orderItem.count} +'개'"></span>
-            <th:block th:if="${order.orderStatus == T(com.example.demo.constant.OrderStatus).ORDER}">
-              <a class="btn btn-outline-secondary" th:href="@{'/orders/' + ${order.orderId} + '/edit'}">내용편집</a>
-            </th:block>
+<!--            <th:block th:if="${order.orderStatus == T(com.example.demo.constant.OrderStatus).ORDER}">-->
+<!--              <a class="btn btn-outline-secondary" th:href="@{'/orders/' + ${order.orderId} + '/edit'}">내용편집</a>-->
+<!--            </th:block>-->
           </div>
         </div>
       </div>
