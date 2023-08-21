@@ -15,9 +15,10 @@ jenkins multibranch pipeline 진행 순서
 <br>2. jenkins가 code를 다운로드 받아서 jenkins server의 docker에 build, push 하여 docker hub에 저장시킵니다.
 <br>3. docker hub에 올라간 이미지를 다운로드 받아서 eks에서 deployment를 만들고 pod를 만듭니다.
 <br>4. jenkins 버전이 업그레이드 됨에 따라서 새로 롤링 배포를 시작합니다.
-
+<br>
 <br>
 이제 aws elasticache(redis 세션)을 사용하여 쿠버네티스 load balancing을 위해 세션 클러스터링을 작업하겠습니다.
+또한 private docker hub을 위해 aws elastic container repository로 변경하겠습니다.
 <br>
 <br>
 
