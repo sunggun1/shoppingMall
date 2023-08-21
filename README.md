@@ -7,7 +7,7 @@ aws s3, rds , 쿠버네티스, 젠킨스 연결 완료 했습니다.
 <br>
 <br>
 
-쿠버네티스 사용한 확인 URL : 다 만들고 올리겠습니다.
+쿠버네티스 사용한 확인 URL : af41fff9b136f46eebde72b0e2dda2cf-1953978268.ap-northeast-2.elb.amazonaws.com:8080
 
 <br>
 docker build -t sunggun1/kubernetes-spring-mysql-demo .
