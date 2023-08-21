@@ -62,5 +62,10 @@ spec:
                 secretKeyRef:
                   name: aws-pass
                   key: aws-access-password
+            - name: AWS_S3_URL
+              valueFrom:
+                secretKeyRef:
+                  name: aws-pass
+                  key: aws-s3-url
       imagePullSecrets:
         - name: regcred
