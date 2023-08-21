@@ -83,6 +83,9 @@ jenkins multibranch pipeline 진행 순서
 <br>
 <br>
 <br>
+<hr>
+사용하기 위해서 만든 명령어 및 참조 URL 입니다.
+<br>
 kubernetes dashboard 확인 방법<br>
 kubectl proxy<br>
 aws eks get-token --cluster-name kub-dep-demo2 | jq -r '.status.token'<br>
