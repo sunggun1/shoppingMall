@@ -8,7 +8,7 @@
 
 <br>
 쿠버네티스, 젠킨스를 이용해 만든 스프링부트 쇼핑몰 입니다. 
-<br>
+<br><br>
 jenkins multibranch pipeline 진행 순서
 <br>1. 코드를 push 후에 jenkins로 빌드를 클릭하여 시작합니다.
 <br>2. jenkins가 code를 다운로드 받아서 jenkins server의 docker에 build, push 하여 docker hub에 저장시킵니다.
