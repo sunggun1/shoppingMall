@@ -7,7 +7,11 @@
 <br>
 <br>
 
-쿠버네티스 사용한 확인 URL : af41fff9b136f46eebde72b0e2dda2cf-1953978268.ap-northeast-2.elb.amazonaws.com:8080
+쿠버네티스 nodePort 확인가능 URL : af41fff9b136f46eebde72b0e2dda2cf-1953978268.ap-northeast-2.elb.amazonaws.com:8080
+
+![image](https://github.com/sunggun1/shoppingMall/assets/17981550/1e29d13e-1da9-445a-8a6d-6a46cd39b8e0)
+
+
 
 <br>
 docker build -t sunggun1/kubernetes-spring-mysql-demo .
