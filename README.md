@@ -9,7 +9,7 @@
 <br>
 쿠버네티스를 이용해 만든 스프링부트 쇼핑몰 입니다. 
 현재 aws s3, rds , 쿠버네티스, 젠킨스 연결 완료 했습니다.<br>
-
+<br>
 jenkins 진행 순서<br>
 1. 코드를 push 후에 jenkins로 빌드를 시작합니다.
 2. jenkins가 code를 다운로드 받아서 jenkins server의 docker에 build, push 하여 docker hub에 저장시킵니다.
