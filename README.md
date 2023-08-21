@@ -3,7 +3,7 @@
 백엔드 : spring boot, gradle, jpa, querydsl, aws s3 <br>
 프론트 : thymeleaf, bootstrap <br>
 데브옵스 : kubernetes(aws eks), jenkins, docker <br>
-데이터베이스 : aws RDS <br>
+데이터베이스 : aws RDS(externalName을 이용해 연결) <br>
 
 
 <br>
