@@ -77,12 +77,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.addAllowedOrigin("https://spring-shoppingmall-bucket.s3.ap-northeast-2.amazonaws.com");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
-
-        configuration.setAllowedOrigins(Arrays.asList("https://spring-shoppingmall-bucket.s3.ap-northeast-2.amazonaws.com"));
-        configuration.setAllowedMethods(Arrays.asList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        
         // 메서드 허용
-//        configuration.setAllowCredentials(true);
+        configuration.setAllowCredentials(true);
 
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
