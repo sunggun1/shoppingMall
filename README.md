@@ -1,7 +1,7 @@
 # shoppingMall
 
 쇼핑몰 입니다. 
-aws s3, rds , 쿠버네티스, 젠킨스 연결 완료 했습니다.
+현재 aws s3, rds , 쿠버네티스, 젠킨스 연결 완료 했습니다.
 <br>
 이제 jwttoken, redis, elasticache를 만들겠습니다.
 <br>
