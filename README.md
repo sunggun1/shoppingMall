@@ -23,7 +23,7 @@ jenkins multibranch pipeline 진행 순서
 <br>4. jenkins 빌드번호에 따라서 새로 롤링 배포를 시작합니다.
 <br>
 <br>
-이제 aws elasticache(redis 세션)을 사용하여 쿠버네티스 load balancing을 위해 세션 클러스터링을 작업하겠습니다.<br>
+이제 redis 세션을 사용하여 쿠버네티스 load balancing을 위해 세션 클러스터링을 작업하겠습니다.<br>
 또한 private docker hub을 위해 aws elastic container repository로 변경하겠습니다.
 <br>
 <br>
