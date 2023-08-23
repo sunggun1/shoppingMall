@@ -9,7 +9,7 @@
 <br>
 소스 아키텍쳐 그림<br>
 
-![image](https://github.com/sunggun1/shoppingMall/assets/17981550/14358ba2-86a3-4319-94fc-44728cbcf1fe)
+![image](https://github.com/sunggun1/shoppingMall/assets/17981550/8f51de2e-de62-42a2-a9bd-7f3e87a4fb47)
 
 
 <br>
