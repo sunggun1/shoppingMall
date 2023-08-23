@@ -6,6 +6,10 @@
 데이터베이스 : aws RDS(externalName을 이용해 연결) <br>
 그 외 : git, sourcetree, aws s3 <br>
 
+<br>
+소스 아키텍쳐 그림
+![image](https://github.com/sunggun1/shoppingMall/assets/17981550/4e7840f0-a49c-4b83-b164-683921a563aa)
+
 
 <br>
 쿠버네티스, 젠킨스를 이용해 만든 스프링부트 쇼핑몰 입니다. 
