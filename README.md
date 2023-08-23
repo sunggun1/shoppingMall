@@ -91,7 +91,7 @@ kubectl proxy<br>
 aws eks get-token --cluster-name kub-dep-demo2 | jq -r '.status.token'<br>
 <br><br>
 
-jenkins에서 
+jenkins에서 작성해야 하는 것들
 1. github-credentials 생성하기.
 2. aws-credentials 생성하기
 3. dockerhub-credentials 생성하기
@@ -99,7 +99,8 @@ jenkins에서
 <hr>
 참조 사이트 목록
 <br>
-jenkins에서 플러그인 docker pipeline, kubernetes, kubernetes-credentials 설치
+1. jenkins에서 플러그인 docker pipeline, kubernetes, kubernetes-credentials 설치
+
 <br>
 https://velog.io/@chang626/docker-container%EC%97%90%EC%84%9C-docker-image-%EB%B9%8C%EB%93%9C-%EC%A7%84%ED%96%89-%EA%B3%BC%EC%A0%95-jenkins-host-docker.sock%EC%9D%84-%EC%97%B0%EA%B2%B0-2
 <br>
@@ -111,12 +112,12 @@ https://kanoos-stu.tistory.com/53
 <br>
 <br>
 
-1. eks vpc 와 rds vpc 연결하는 방법<br>
+2. eks vpc 와 rds vpc 연결하는 방법<br>
 https://dev.to/bensooraj/accessing-amazon-rds-from-aws-eks-2pc3
 
-2. amazon linux2 ec2(jenkins)에 docker 설치 방법
+3. amazon linux2 ec2(jenkins)에 docker 설치 방법
 https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9
 
-3. amazon linux2 ec2(jenkins)에 kubectl 설치 방법
+4. amazon linux2 ec2(jenkins)에 kubectl 설치 방법
 https://devcoops.com/install-kubectl-amazon-linux-2/ (eks version : 1.72, kubectl version : 1.36) 버전에 맞게 설치해야 합니다.
 
