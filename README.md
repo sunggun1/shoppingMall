@@ -105,6 +105,7 @@ jenkins에서 작성해야 하는 것들
 <hr>
 참조 사이트 목록
 <br>
+
 1. jenkins에서 플러그인 docker pipeline, kubernetes, kubernetes-credentials 설치
 
 <br>
@@ -125,4 +126,5 @@ https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9
 <br>
 4. amazon linux2 ec2(jenkins)에 kubectl 설치 방법<br>
 https://devcoops.com/install-kubectl-amazon-linux-2/ (eks version : 1.72, kubectl version : 1.36) 버전에 맞게 설치해야 합니다.
-
+<br>
+5.유데미 【한글자막】 Docker & Kubernetes : 실전 가이드, eks 구현 참조 사이트
