@@ -28,6 +28,7 @@ jenkins multibranch pipeline 진행 순서
 <br>
 <br>
 
+(매달 26만원이 나와서 현재 삭제하였습니다..)<br>
 쿠버네티스 확인 가능 URL : af41fff9b136f46eebde72b0e2dda2cf-1953978268.ap-northeast-2.elb.amazonaws.com:8080
 
 1. 로그인 페이지 
