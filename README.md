@@ -13,12 +13,14 @@
 
 
 배운 것들 <br>
-1. jenkins multi branch pipeline을 사용하여 CI/CD 개발
-2. eks를 이용하여 kubernetes deployment, service, pod, configmap, secret, eks와 rds peering 연결, kubernetes-dashboard 설치
-3. jpa와 querydsl, spring security cors, spring security role에 따른 역할 부여 사용하여 백엔드 개발
+1. jpa와 querydsl, spring security cors, spring security role에 따른 역할 부여 사용하여 백엔드 개발
+2. jenkins multi branch pipeline을 사용하여 CI/CD 개발
+3. eks를 이용하여 kubernetes deployment, service, pod, configmap, secret 등을 사용하고 eks와 rds peering 연결, kubernetes-dashboard 설치 및 사용
+4. jenkins에서 git credentials을 통해 코드 pull을 받아오고 aws-credentials과 kubernetes 모듈을 통해 쿠버네티스, aws와 연결하였습니다. 
 
-
-
+많이 막혔던 부분<br>
+1. rds vpc와 k8s vpc가 서로 달라서 적용이 안되서 막혔는데 구글링을 통해 vpc peering 등을 통해 해결하였습니다.
+2. jenkins multi branch pipeline 개발 시 jenkins aws-credentials이 여러개가 있어서 어떤 모듈을 사용해야 하는지 잘 몰라서 어려웠습니다. 하지만 검색을 통해 맞는 aws 모듈을 찾아내어 적용하였습니다.
 
 <br>
 <br>
@@ -115,7 +117,7 @@ jenkins에서 작성해야 하는 것들
 참조 사이트 목록
 <br>
 
-1. jenkins에서 플러그인 docker pipeline, kubernetes, kubernetes-credentials 설치
+1. jenkins에서 플러그인 docker pipeline, aws-credentials, kubernetes, kubernetes-credentials 설치
 
 <br>
 https://velog.io/@chang626/docker-container%EC%97%90%EC%84%9C-docker-image-%EB%B9%8C%EB%93%9C-%EC%A7%84%ED%96%89-%EA%B3%BC%EC%A0%95-jenkins-host-docker.sock%EC%9D%84-%EC%97%B0%EA%B2%B0-2
