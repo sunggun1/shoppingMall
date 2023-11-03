@@ -12,6 +12,14 @@
 ![image](https://github.com/sunggun1/shoppingMall/assets/17981550/9ee96650-8594-4c83-a219-6add56f761b6)
 
 
+배운 것들 <br>
+1. jenkins multi branch pipeline을 사용하여 CI/CD 개발
+2. eks를 이용하여 kubernetes deployment, service, pod, configmap, secret, eks와 rds peering 연결, kubernetes-dashboard 설치
+3. jpa와 querydsl, spring security cors, spring security role에 따른 역할 부여 사용하여 백엔드 개발
+
+
+
+
 <br>
 <br>
 쿠버네티스, 젠킨스를 이용해 만든 스프링부트 쇼핑몰 입니다. 
